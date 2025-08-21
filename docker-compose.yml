@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: energia
+      POSTGRES_USER: energia
+      POSTGRES_PASSWORD: energia
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  dashboard-api:
+    build:
+      context: ./dashboard-api
+      dockerfile: Dockerfile
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/energia
+      DB_USER: energia
+      DB_PASSWORD: energia
+      FILE_STORAGE_LOCATION: /data/uploads
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    volumes:
+      - uploads:/data/uploads
+
+volumes:
+  db_data:
+  uploads:
+
+

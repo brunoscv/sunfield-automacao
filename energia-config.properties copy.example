@@ -1,0 +1,14 @@
+# Configurações da Aplicação Energia Automation
+# Este arquivo é um exemplo. Copie para 'energia-config.properties' e preencha com seus dados.
+
+# URL do site da companhia elétrica
+site.url=https://exemplo.com.br
+
+# Credenciais do usuário
+user.email=seu.email@exemplo.com
+user.cpf=123.456.789-00
+
+# Configurações avançadas (opcionais)
+# download.directory=C:\\Users\\Usuario\\Downloads\\Energia
+# timeout.seconds=30
+# headless.mode=false
